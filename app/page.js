@@ -4,14 +4,22 @@ import Catalog from '@/components/Catalog';
 export const dynamic = 'force-dynamic';
 
 export default async function Home() {
-  const products = await prisma.product.findMany({
-    include: { category: true },
-    orderBy: { createdAt: 'desc' }
-  });
+  let products = [];
+  let categories = [];
 
-  const categories = await prisma.category.findMany({
-    orderBy: { name: 'asc' }
-  });
+  try {
+    products = await prisma.product.findMany({
+      include: { category: true },
+      orderBy: { createdAt: 'desc' }
+    });
+
+    categories = await prisma.category.findMany({
+      orderBy: { name: 'asc' }
+    });
+  } catch (error) {
+    console.error("Failed to fetch data:", error);
+    // Fallback to empty to prevent build crash
+  }
 
   const serializedProducts = products.map((product) => ({
     ...product,
