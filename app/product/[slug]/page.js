@@ -3,14 +3,7 @@ import { notFound } from 'next/navigation';
 import { formatRupiah } from '@/utils/currency';
 import AddToCartButton from './AddToCartButton';
 
-export const revalidate = 0;
-
-export async function generateStaticParams() {
-    const products = await prisma.product.findMany({ select: { id: true } });
-    return products.map((product) => ({
-        slug: product.id.toString(),
-    }));
-}
+export const dynamic = 'force-dynamic';
 
 export default async function ProductDetail({ params }) {
     const id = parseInt(params.slug);
