@@ -47,7 +47,7 @@ export default async function ProductDetail({ params }) {
                     <p className="text-2xl font-bold text-gray-900 mb-6">
                         {formatRupiah(product.price)}
                     </p>
-                    <p className="text-gray-600 leading-relaxed mb-8 text-lg">
+                    <p className="text-gray-600 leading-relaxed mb-8 text-lg whitespace-pre-line">
                         {product.description}
                     </p>
 

@@ -15,10 +15,10 @@ export default function Catalog({ products, categories }) {
             {/* Hero Section */}
             <div className="text-center mb-12">
                 <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
-                    Katalog UMKM Pilihan
+                    AFC Premium Health Solutions Bandung
                 </h1>
                 <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Temukan berbagai produk makanan dan minuman terbaik dari UMKM lokal dengan rasa yang autentik.
+                    Produk Kesehatan Standar Jepang Investasi terbaik untuk tubuh Anda melalui nutrisi fungsional premium untuk kesehatan otak, organ, dan sistem imun.
                 </p>
             </div>
 
@@ -27,24 +27,26 @@ export default function Catalog({ products, categories }) {
                 <button
                     onClick={() => setSelectedCategory('all')}
                     className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${selectedCategory === 'all'
-                            ? 'bg-gray-900 text-white shadow-lg scale-105'
-                            : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50'
+                        ? 'bg-gray-900 text-white shadow-lg scale-105'
+                        : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50'
                         }`}
                 >
                     Semua
                 </button>
-                {categories.map((cat) => (
-                    <button
-                        key={cat.id}
-                        onClick={() => setSelectedCategory(cat.id)}
-                        className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${selectedCategory === cat.id
+                {categories
+                    .filter(cat => !['makanan', 'snack'].includes(cat.name.toLowerCase()))
+                    .map((cat) => (
+                        <button
+                            key={cat.id}
+                            onClick={() => setSelectedCategory(cat.id)}
+                            className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${selectedCategory === cat.id
                                 ? 'bg-gray-900 text-white shadow-lg scale-105'
                                 : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50'
-                            }`}
-                    >
-                        {cat.name}
-                    </button>
-                ))}
+                                }`}
+                        >
+                            {cat.name}
+                        </button>
+                    ))}
             </div>
 
             {/* Product Grid */}
