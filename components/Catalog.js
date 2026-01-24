@@ -15,7 +15,7 @@ export default function Catalog({ products, categories }) {
             {/* Hero Section */}
             <div className="text-center mb-12">
                 <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
-                    AFC Premium Health Solutions Bandung
+                    AFC Japan Store ID - Premium Health Solutions
                 </h1>
                 <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                     Produk Kesehatan Standar Jepang Investasi terbaik untuk tubuh Anda melalui nutrisi fungsional premium untuk kesehatan otak, organ, dan sistem imun.
