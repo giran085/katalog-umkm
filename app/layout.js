@@ -15,8 +15,8 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "UMKM Katalog Online",
-  description: "Temukan produk UMKM terbaik di sini.",
+  title: "AFC Japan Store ID - Premium Health Solutions",
+  description: "Produk Kesehatan Standar Jepang. Investasi terbaik untuk tubuh Anda melalui nutrisi fungsional premium untuk kesehatan otak, organ, dan sistem imun.",
 };
 
 export default function RootLayout({ children }) {
