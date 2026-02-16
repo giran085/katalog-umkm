@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import ProductCard from '@/components/ProductCard';
+import Link from 'next/link';
 
 export default function Catalog({ products, categories }) {
     const [selectedCategory, setSelectedCategory] = useState('all');
@@ -47,7 +48,16 @@ export default function Catalog({ products, categories }) {
                             {cat.name}
                         </button>
                     ))}
+
+                {/* Artikel Button */}
+                <Link
+                    href="/artikel"
+                    className="px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:scale-105"
+                >
+                    📰 Artikel
+                </Link>
             </div>
+
 
             {/* Product Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
