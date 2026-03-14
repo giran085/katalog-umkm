@@ -56,6 +56,15 @@ export default function Catalog({ products, categories }) {
                 >
                     📰 Artikel
                 </Link>
+
+                {/* Testimoni Button */}
+                <Link
+                    href="/testimoni"
+                    className="px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 text-white shadow-lg hover:scale-105"
+                    style={{ backgroundColor: '#534AB7' }}
+                >
+                    ⭐ Testimoni
+                </Link>
             </div>
 
 
