@@ -84,3 +84,4 @@ export default function Catalog({ products, categories }) {
         </div>
     );
 }
+
