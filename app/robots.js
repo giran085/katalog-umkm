@@ -5,6 +5,6 @@ export default function robots() {
             allow: '/',
             disallow: '/api/',
         },
-        sitemap: 'https://afcjapanstore.com/sitemap.xml', // Update with your actual domain
+        sitemap: 'https://www.afcjapanstore.id/sitemap.xml', // Update with your actual domain
     };
 }

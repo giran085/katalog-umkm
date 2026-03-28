@@ -134,7 +134,7 @@ export default async function ArticleDetailPage({ params }) {
                         <div className="flex flex-wrap gap-3">
                             <a
                                 href={`https://wa.me/?text=${encodeURIComponent(
-                                    `${article.title} - https://afcjapanstore.com/artikel/${article.slug}`
+                                    `${article.title} - https://www.afcjapanstore.id/artikel/${article.slug}`
                                 )}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -148,7 +148,7 @@ export default async function ArticleDetailPage({ params }) {
 
                             <a
                                 href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-                                    `https://afcjapanstore.com/artikel/${article.slug}`
+                                    `https://www.afcjapanstore.id/artikel/${article.slug}`
                                 )}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -164,7 +164,7 @@ export default async function ArticleDetailPage({ params }) {
                                 href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
                                     article.title
                                 )}&url=${encodeURIComponent(
-                                    `https://afcjapanstore.com/artikel/${article.slug}`
+                                    `https://www.afcjapanstore.id/artikel/${article.slug}`
                                 )}`}
                                 target="_blank"
                                 rel="noopener noreferrer"

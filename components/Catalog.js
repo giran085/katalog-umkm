@@ -25,25 +25,29 @@ export default function Catalog({ products, categories }) {
 
             {/* Category Filter */}
             <div className="flex flex-wrap justify-center gap-3 mb-10">
-                <button
-                    onClick={() => setSelectedCategory('all')}
-                    className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${selectedCategory === 'all'
-                        ? 'bg-gray-900 text-white shadow-lg scale-105'
-                        : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50'
-                        }`}
-                >
-                    Semua
-                </button>
                 {categories
                     .filter(cat => !['makanan', 'snack'].includes(cat.name.toLowerCase()))
                     .map((cat) => (
                         <button
                             key={cat.id}
                             onClick={() => setSelectedCategory(cat.id)}
-                            className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${selectedCategory === cat.id
-                                ? 'bg-gray-900 text-white shadow-lg scale-105'
-                                : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50'
-                                }`}
+                            className="px-6 py-2 rounded-full text-sm font-medium transition-all duration-200"
+                            style={selectedCategory === cat.id
+                                ? { backgroundColor: '#F43F5E', color: '#fff', boxShadow: '0 4px 14px rgba(244,63,94,0.35)', transform: 'scale(1.05)' }
+                                : { backgroundColor: '#FFF1F4', color: '#BE185D', border: '1px solid #FECDD3' }
+                            }
+                            onMouseEnter={e => {
+                                if (selectedCategory !== cat.id) {
+                                    e.currentTarget.style.backgroundColor = '#FECDD3';
+                                    e.currentTarget.style.color = '#9D174D';
+                                }
+                            }}
+                            onMouseLeave={e => {
+                                if (selectedCategory !== cat.id) {
+                                    e.currentTarget.style.backgroundColor = '#FFF1F4';
+                                    e.currentTarget.style.color = '#BE185D';
+                                }
+                            }}
                         >
                             {cat.name}
                         </button>

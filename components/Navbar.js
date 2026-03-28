@@ -77,15 +77,15 @@ export default function Navbar() {
 
                 <button
                     onClick={toggleDrawer}
-                    className="relative p-2 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+                    className="relative p-2 bg-[#25D366] hover:bg-[#128C7E] rounded-full transition-colors"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                        className="w-6 h-6 text-gray-700"
+                        strokeWidth={1.8}
+                        stroke="#1F2937"
+                        className="w-6 h-6"
                     >
                         <path
                             strokeLinecap="round"

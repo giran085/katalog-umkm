@@ -1,7 +1,7 @@
 import prisma from '@/lib/prisma';
 
 export default async function sitemap() {
-    const baseUrl = 'https://afcjapanstore.com'; // Update with your actual domain
+    const baseUrl = 'https://www.afcjapanstore.id'; // Update with your actual domain
 
     // Get all published articles
     const articles = await prisma.article.findMany({

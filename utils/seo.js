@@ -19,7 +19,7 @@ export function calculateReadingTime(content) {
  * @param {string} baseUrl - Base URL of the website
  * @returns {Object} - JSON-LD structured data
  */
-export function generateArticleSchema(article, baseUrl = 'https://afcjapanstore.com') {
+export function generateArticleSchema(article, baseUrl = 'https://www.afcjapanstore.id') {
     return {
         '@context': 'https://schema.org',
         '@type': 'Article',
@@ -54,7 +54,7 @@ export function generateArticleSchema(article, baseUrl = 'https://afcjapanstore.
  * @param {string} baseUrl - Base URL of the website
  * @returns {Object} - JSON-LD structured data
  */
-export function generateBlogSchema(baseUrl = 'https://afcjapanstore.com') {
+export function generateBlogSchema(baseUrl = 'https://www.afcjapanstore.id') {
     return {
         '@context': 'https://schema.org',
         '@type': 'Blog',
@@ -132,7 +132,7 @@ export function formatDate(date) {
  * @param {string} baseUrl - Base URL
  * @returns {Object} - Meta tags object
  */
-export function generateArticleMetadata(article, baseUrl = 'https://afcjapanstore.com') {
+export function generateArticleMetadata(article, baseUrl = 'https://www.afcjapanstore.id') {
     const url = `${baseUrl}/artikel/${article.slug}`;
     const image = article.featuredImage || `${baseUrl}/default-article.jpg`;
 
