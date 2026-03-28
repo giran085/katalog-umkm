@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import CartDrawer from "@/components/CartDrawer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import VisitTracker from "@/components/VisitTracker";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,6 +30,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         <CartDrawer />
         <FloatingWhatsApp />
+        <VisitTracker />
         <main className="pt-20 min-h-screen bg-gray-50">
           {children}
         </main>
