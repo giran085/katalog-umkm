@@ -52,7 +52,7 @@ export default function Navbar() {
                     }
                 }
             } catch (error) {
-                console.error('Failed to fetch visitor count:', error);
+                // Silently fail
             }
         };
 
