@@ -25,11 +25,24 @@ export default function VisitTracker() {
     if (window.location.pathname.startsWith('/api')) return;
 
     const trackVisit = async () => {
+      // Debug logging
+      console.log('[VisitTracker] Starting...');
+      console.log('[VisitTracker] SUPABASE_URL:', SUPABASE_URL);
+      console.log('[VisitTracker] SUPABASE_ANON_KEY exists:', !!SUPABASE_ANON_KEY);
+
+      if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+        console.error('[VisitTracker] Missing Supabase env vars!');
+        return;
+      }
+
       // Get or create session ID
       let sessionId = localStorage.getItem('afc_session_id');
       if (!sessionId) {
         sessionId = generateSessionId();
         localStorage.setItem('afc_session_id', sessionId);
+        console.log('[VisitTracker] New session created:', sessionId);
+      } else {
+        console.log('[VisitTracker] Using existing session:', sessionId);
       }
 
       const data = {
@@ -40,30 +53,33 @@ export default function VisitTracker() {
         device: getDeviceType(),
       };
 
-      // Only track once per session per page (within 1 hour)
-      const lastTrack = sessionStorage.getItem(`tracked_${window.location.pathname}`);
-      const now = Date.now();
-      if (lastTrack && now - parseInt(lastTrack) < 3600000) {
-        return; // Already tracked within 1 hour
-      }
-      sessionStorage.setItem(`tracked_${window.location.pathname}`, now.toString());
+      console.log('[VisitTracker] Data to send:', data);
 
       // Send to Supabase REST API directly (no Prisma needed)
-      if (SUPABASE_URL && SUPABASE_ANON_KEY) {
-        try {
-          await fetch(`${SUPABASE_URL}/rest/v1/page_visits`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'apikey': SUPABASE_ANON_KEY,
-              'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-              'Prefer': 'return=minimal'
-            },
-            body: JSON.stringify(data),
-          });
-        } catch (error) {
-          // Silently fail - don't bother user with tracking errors
+      try {
+        console.log('[VisitTracker] Sending to:', `${SUPABASE_URL}/rest/v1/page_visits`);
+
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/page_visits`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify(data),
+        });
+
+        console.log('[VisitTracker] Response status:', response.status);
+
+        if (response.ok) {
+          console.log('[VisitTracker] Visit tracked successfully!');
+        } else {
+          const errorText = await response.text();
+          console.error('[VisitTracker] Error:', response.status, errorText);
         }
+      } catch (error) {
+        console.error('[VisitTracker] Fetch error:', error);
       }
     };
 
