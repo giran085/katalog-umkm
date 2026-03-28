@@ -19,6 +19,11 @@ const geistMono = localFont({
 export const metadata = {
   title: "AFC Japan Store ID - Premium Health Solutions",
   description: "Produk Kesehatan Standar Jepang. Investasi terbaik untuk tubuh Anda melalui nutrisi fungsional premium untuk kesehatan otak, organ, dan sistem imun.",
+  icons: {
+    icon: '/icon-afc.jpeg',
+    shortcut: '/icon-afc.jpeg',
+    apple: '/icon-afc.jpeg',
+  },
 };
 
 export default function RootLayout({ children }) {
