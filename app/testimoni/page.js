@@ -20,7 +20,8 @@ const imageNames = [
     "testimoni (6).jpeg",
     "testimoni (1).jpeg",
     "testimoni (2).jpeg",
-    "testimoni (3).jpeg"
+    "testimoni (3).jpeg",
+    "testimoni baru.jpeg"
 ];
 
 const slides = imageNames.map((name, index) => ({

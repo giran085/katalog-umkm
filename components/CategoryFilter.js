@@ -28,10 +28,25 @@ export default function CategoryFilter({ categories }) {
                 {solusiSehat && (
                     <Link
                         href={`/artikel?kategori=${solusiSehat.slug}`}
-                        className="px-4 py-2 rounded-full text-sm font-medium transition-colors text-white hover:opacity-90"
-                        style={{ backgroundColor: '#52B788' }}
+                        className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
+                        style={currentCategory === solusiSehat.slug
+                            ? { backgroundColor: '#059669', color: '#fff', boxShadow: '0 4px 12px rgba(5,150,105,0.35)', transform: 'scale(1.05)' }
+                            : { backgroundColor: '#D1FAE5', color: '#047857', border: '1px solid #6EE7B7' }
+                        }
+                        onMouseEnter={e => {
+                            if (currentCategory !== solusiSehat.slug) {
+                                e.currentTarget.style.backgroundColor = '#6EE7B7';
+                                e.currentTarget.style.color = '#065F46';
+                            }
+                        }}
+                        onMouseLeave={e => {
+                            if (currentCategory !== solusiSehat.slug) {
+                                e.currentTarget.style.backgroundColor = '#D1FAE5';
+                                e.currentTarget.style.color = '#047857';
+                            }
+                        }}
                     >
-                        {solusiSehat.name}
+                        🌿 {solusiSehat.name}
                     </Link>
                 )}
 
