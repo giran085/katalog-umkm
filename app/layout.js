@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
         <CartDrawer />
         <FloatingWhatsApp />
         <VisitTracker />
-        <main className="pt-20 min-h-screen bg-gray-50">
+        <main className="pt-20 min-h-screen bg-gray-50 doodle-bg">
           {children}
         </main>
       </body>
