@@ -102,6 +102,15 @@ export default function Catalog({ products, categories }) {
                 >
                     ⭐ Testimoni
                 </Link>
+
+                {/* E-Book Button */}
+                <Link
+                    href="/ebook"
+                    className="px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 text-white shadow-lg hover:scale-105"
+                    style={{ backgroundColor: '#D97706' }}
+                >
+                    📚 E-Book
+                </Link>
             </div>
 
 
