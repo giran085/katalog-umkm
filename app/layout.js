@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import CartDrawer from "@/components/CartDrawer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import VisitTracker from "@/components/VisitTracker";
+import PromoPopup from "@/components/PromoPopup";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <PromoPopup />
         <Navbar />
         <CartDrawer />
         <FloatingWhatsApp />
