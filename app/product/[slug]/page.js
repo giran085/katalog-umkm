@@ -26,11 +26,11 @@ export default async function ProductDetail({ params }) {
         <div className="container mx-auto px-4 py-8 max-w-6xl">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
                 {/* Image Section */}
-                <div className="rounded-2xl overflow-hidden bg-gray-100 aspect-square md:aspect-auto md:h-[500px]">
+                <div className="rounded-2xl overflow-hidden bg-gradient-to-b from-gray-50 to-gray-100 border border-gray-200/70 flex items-center justify-center p-3 sm:p-5 min-h-[320px] md:h-[500px] shadow-sm">
                     <img
                         src={product.image}
                         alt={product.name}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full max-h-[480px] object-contain rounded-xl drop-shadow-sm transition-transform duration-300 hover:scale-[1.02]"
                     />
                 </div>
 

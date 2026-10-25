@@ -5,44 +5,11 @@ import ProductCard from '@/components/ProductCard';
 import Link from 'next/link';
 
 export default function Catalog({ products, categories }) {
-    const [selectedCategory, setSelectedCategory] = useState('all');
+    const [selectedCategory, setSelectedCategory] = useState(categories[0]?.id || 'all');
 
-    const filteredProducts = (() => {
-        const list = selectedCategory === 'all'
-            ? products
-            : products.filter(p => p.categoryId === selectedCategory);
-
-        if (selectedCategory === 'all') {
-            // Sort: SOP Subarashi first, then mix others (no consecutive same brand)
-            const sop = list.filter(p => p.name.includes('SOP Subarashi'));
-            const others = list.filter(p => !p.name.includes('SOP Subarashi'));
-
-            // Mix others: round-robin by brand name
-            const sorted = [];
-            const groups = {};
-            others.forEach(p => {
-                const brand = p.name;
-                if (!groups[brand]) groups[brand] = [];
-                groups[brand].push(p);
-            });
-            const brandKeys = Object.keys(groups);
-            let added = true;
-            while (sorted.length < others.length) {
-                added = false;
-                for (const key of brandKeys) {
-                    if (groups[key].length > 0) {
-                        sorted.push(groups[key].shift());
-                        added = true;
-                    }
-                }
-                if (!added) break;
-            }
-
-            return [...sop, ...sorted];
-        }
-
-        return list;
-    })();
+    const filteredProducts = selectedCategory === 'all'
+        ? products
+        : products.filter(p => p.categoryId === selectedCategory);
 
     return (
         <div className="container mx-auto px-4 py-8 max-w-7xl">
@@ -115,7 +82,7 @@ export default function Catalog({ products, categories }) {
 
 
             {/* Product Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {filteredProducts.map((product) => (
                     <ProductCard key={product.id} product={product} />
                 ))}
